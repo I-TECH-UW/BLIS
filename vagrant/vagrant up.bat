@@ -1,0 +1,3 @@
+cd ..
+vagrant up
+pause
