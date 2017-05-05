@@ -4106,9 +4106,9 @@ function AddnewDHIMS2Config()
 							<?php $page_elems->getProgressSpinner(LangUtil::$generalTerms['CMD_SEARCHING']); ?>
 						</span>
 						<br><br>
-						<div id='report_config_content'>
-						</div>
-					</form>	
+					</form>
+                    <div id='report_config_content'>
+                    </div>
 				</div>
 
 				<!-- Form for enabling/disabling test reports -->
