@@ -74,3 +74,4 @@ server/
 *_old.xml
 *_copy.php
 *.bak
+/htdocs/regn/new_patient_updated.php
