@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.provision "file", source: "vagrant/bootstrap/vagrant-blis-httpd-2.4.conf", destination: "/home/vagrant/vagrant-blis-httpd.conf"
   config.vm.provision "file", source: "vagrant/bootstrap/xdebug-trusty.ini", destination: "/home/vagrant/xdebug.ini"
-  config.vm.provision "file", source: "vagrant/bootstrap/emptydb-20160520.sql", destination: "/home/vagrant/emptydb-20160520.sql"
+  config.vm.provision "file", source: "vagrant/bootstrap/sampledb-blis3.3.sql", destination: "/home/vagrant/db.sql"
   config.vm.provision "file", source: "vagrant/bootstrap/grant-privileges.sql", destination: "/home/vagrant/grant-privileges.sql"
   
   config.vm.provision :shell, :inline => "sudo apt-get update && apt-get -y upgrade", run: "once"
@@ -37,8 +37,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :inline => "sudo rm -f /etc/apache2/sites-enabled/000-default.conf", run: "once"
   config.vm.provision :shell, :inline => "sudo ln -s /etc/apache2/sites-available/vagrant-blis-httpd.conf /etc/apache2/sites-enabled/", run: "once"
   config.vm.provision :shell, :inline => "mysql -u root </home/vagrant/grant-privileges.sql", run: "once"
-  config.vm.provision :shell, :inline => "mysql -u root </home/vagrant/emptydb-20160520.sql", run: "once"
-  config.vm.provision :shell, :inline => "rm /home/vagrant/emptydb-20160520.sql /home/vagrant/grant-privileges.sql", run: "once"
+  config.vm.provision :shell, :inline => "mysql -u root </home/vagrant/db.sql", run: "once"
+  config.vm.provision :shell, :inline => "rm /home/vagrant/db.sql /home/vagrant/grant-privileges.sql", run: "once"
   config.vm.provision :shell, :inline => "sudo sed -i 's/\\s\\+\\/\\/\\(.*\\)AllowNoPassword\\(.*\\)/\\1AllowNoPassword\\2/' /etc/phpmyadmin/config.inc.php", run: "once"
   
   # do this last so that the /vagrant shared folder is mounted for apache logs
