@@ -480,8 +480,8 @@ $LANG_ARRAY = array (
         "ENABLE_SITE_ENTRY" => "Activer l'entrée du site pour un spécimen",
         "SELECT_SITE_FOR_REMOVAL" => "Sélection de sites pour l'élimination",
 		 "OUT_OF_RANGE" => "hors de portée",
-        "INTERPRETATION" => "Interprétation"
-        "MODIFY_SITE" => "Modifier les sites"
+        "INTERPRETATION" => "Interprétation",
+        "MODIFY_SITE" => "Modifier les sites",
 
     ) ,
 	"lab_admins" => array ( 
