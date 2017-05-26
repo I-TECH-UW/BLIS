@@ -28,6 +28,13 @@ thisbackup=$backupdir/$LONGDATE
 echo "Shutting down the webserver..."
 service apache2 stop
 
+echo "Updating webserver configuration..."
+sed -i 's_DocumentRoot /var/www$_DocumentRoot /var/www/oebasic/htdocs_' /etc/apache2/sites-available/default
+sed -i 's_Directory /var/www/>_Directory /var/www/oebasic/htdocs/>_' /etc/apache2/sites-available/default
+sed -i 's_DocumentRoot /var/www$_DocumentRoot /var/www/oebasic/htdocs_' /etc/apache2/sites-available/default-ssl
+sed -i 's_Directory /var/www/>_Directory /var/www/oebasic/htdocs/>_' /etc/apache2/sites-available/default-ssl
+
+echo "Backing up databases..."
 mkdir -p $thisbackup/databases-$DATE
 
 # backup databases
